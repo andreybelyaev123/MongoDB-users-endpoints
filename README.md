@@ -2,6 +2,7 @@
 Code challenge
 
 
+
 Requirement:
 
 MongoDB 3.0
@@ -13,6 +14,20 @@ mongo-java-driver: Java library for MongoDB.
 jersey-container-jdk-http: framework provides standard ways for building RESTful web services
 
 httpserver allows to build http server in runnable jar file
+
+
+Installetion:
+
+Extract all files from zip file
+
+Launch Eclipse
+
+File->Import->Maven->Existing Maven Projects and select directory where files have been extracted
+
+src->org.mongousers->UserServer ->Run As-> Java Application
+press Enter to stop server
+
+Build Runnible Jar:
 
 
 
@@ -39,7 +54,7 @@ java -cp MongoUsers.jar org.mongousers.UserServer -port:9997 -dbport:27018 dbnam
 
 JUnit tests:
 
-java -cp MongoUsersTests.jar tests.testMain [host:<server-host>][port:<server-port>]
+java -cp MongoUsers.jar tests.testMain [host:<server-host>][port:<server-port>]
 
 import users.json to MongoDB using mongoimport, where db and collection will be used in parameters of server:
 
@@ -51,7 +66,7 @@ java -cp MongoUsers.jar org.mongousers.UserServer -dbname:test -dbcollection:use
 
 Run JUnit tests:
 
-java -cp MongoUsersTests.jar tests.testMain
+java -cp MongoUsers.jar tests.testMain
 
 
 Versioning.
@@ -68,9 +83,10 @@ Server returns HTTP error 415, if server version and client version are differen
 JUnit test testFiles() sends wrong version to server and fails, if server does not return an error.
 
 
-EndPoints:
+EndPoints definition.
 
 User Login:
+
 POST
 UserService/login
 
@@ -79,6 +95,7 @@ Payload example: {"userid":"test","password":"test123!"}
 Response: {"error":"yes"|"no"}
 
 Get users:
+
 GET
 UserService/users
 Query params: 
@@ -97,15 +114,24 @@ Response:
 }
 
 Status:
+
 GET
 UserService/status
 
 Response: {"error":"yes"|"no"}
 
 Files:
+
 GET
 UserService/files{dir}
 
 Response example:
 [{"db":"directory"},{"readme.txt":"file"}...]
+
+
+Using endpoints locally:
+
+http://localhost:9998/UserService/users?page_size=3&groupby=profession&page_number=1
+http://localhost:9998/UserService/status
+http://localhost:9998/UserService/files/c:
 
