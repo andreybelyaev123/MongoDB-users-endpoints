@@ -3,11 +3,11 @@ Code challenge
 
 
 
-Requirement:
+**Requirement:**
 
 MongoDB 3.0
 
-Techoligies:
+**Techoligies:**
 
 mongo-java-driver: Java library for MongoDB.
 
@@ -16,7 +16,7 @@ jersey-container-jdk-http: framework provides standard ways for building RESTful
 httpserver allows to build http server in runnable jar file
 
 
-Installetion:
+**Installetion:**
 
 Extract all files from zip file
 
@@ -29,9 +29,12 @@ press Enter to stop server
 
 Build Runnible Jar:
 
+File->Export->Java->Runnable JAR file: 
+Select Launch configuration: UserServer
+Enter Export destination: MongoUsers.jar
 
 
-Start in command line:
+**Start in command line:**
 
 java -cp MongoUsers.jar org.mongousers.UserServer [parameter:value] [parameter:value]...
 
@@ -52,7 +55,7 @@ using db "test" and collection "users":
 java -cp MongoUsers.jar org.mongousers.UserServer -port:9997 -dbport:27018 dbname:test dbcollection:users
 		
 
-JUnit tests:
+**JUnit tests:**
 
 java -cp MongoUsers.jar tests.testMain [host:<server-host>][port:<server-port>]
 
@@ -69,7 +72,7 @@ Run JUnit tests:
 java -cp MongoUsers.jar tests.testMain
 
 
-Versioning.
+**Versioning.**
 
 Versioning of endpoints are hendled with JAX-RS annotation @Consumes:
 
@@ -83,7 +86,7 @@ Server returns HTTP error 415, if server version and client version are differen
 JUnit test testFiles() sends wrong version to server and fails, if server does not return an error.
 
 
-EndPoints definition.
+**EndPoints definition.**
 
 User Login:
 
@@ -129,9 +132,11 @@ Response example:
 [{"db":"directory"},{"readme.txt":"file"}...]
 
 
-Using endpoints locally:
+**Using endpoints locally:**
 
 http://localhost:9998/UserService/users?page_size=3&groupby=profession&page_number=1
+
 http://localhost:9998/UserService/status
+
 http://localhost:9998/UserService/files/c:
 
