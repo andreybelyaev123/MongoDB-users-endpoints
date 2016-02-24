@@ -73,7 +73,7 @@ java -cp MongoUsers.jar tests.testMain
 
 **Versioning.**
 
-Versioning of endpoints are hendled with JAX-RS annotation @Consumes:
+Versioning of endpoints are handled with JAX-RS annotation @Consumes:
 
 @Consumes({MediaType.APPLICATION_JSON,"application/mongo-users-v1+json"})
 
