@@ -1,5 +1,4 @@
 # MongoDB-users-endpoints
-Code challenge
 
 
 
